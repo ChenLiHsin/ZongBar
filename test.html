@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>鍾拔榮退感恩茶會</title>
+</head>
+<body >
+<h2>鍾拔榮退感恩茶會</h2>
+<h3>Step 1:選擇相框(直向 or 橫向) </h3>
+
+<div>
+  <button type="button" id = "one" ><img src="0113_3.png" width = "120" height = "80" ></button>
+  <button type="button" id = "two" ><img src="0113_5.png" width = "80" height = "120"></button>
+</div>
+<br>
+<h3>Step 2:上傳照片 </h3>
+<div>
+  <div class="inputoutput">
+    <img id="imageSrc" style="display:none" />
+    <div class="caption" > <input type="file" id="fileInput" name="file" /></div>
+	<a href="#" download="image.png" onclick="this.href=outputCanvas.toDataURL();" >下載圖片</a>
+	
+  </div>
+  <canvas id="outputCanvas"></canvas>
+</div>
+<script type="text/javascript">
+let imgElement = document.getElementById("imageSrc") ;
+let output = document.getElementById("outputCanvas") ;
+let inputElement = document.getElementById("fileInput");
+
+
+let one_button = document.querySelector("#one"); 
+let two_button = document.querySelector("#two"); 
+
+
+inputElement.addEventListener("change", (e) => {
+  imgElement.src = URL.createObjectURL(e.target.files[0]);
+}, false);
+
+var img = new Image();
+
+img.src = "0113_3.png" ;
+
+one_button.addEventListener("click", (e) => {
+	img.src = "0113_3.png" ;
+});
+
+two_button.addEventListener("click", (e) => {
+	img.src = "0113_5.png" ;
+});
+
+
+imgElement.onload = function() { 
+
+  let mat = cv.imread(imgElement);
+
+
+  var ctx = output.getContext('2d');
+  output.width = imgElement.width ;
+  output.height = imgElement.height;  
+  ctx.rect(0,0,output.width,output.height);
+ 
+
+  
+  cv.imshow("outputCanvas", mat);  
+  ctx.drawImage(img,0,0,imgElement.width,imgElement.height);
+  
+}
+
+</script>
+
+<script src="opencv.js" type="text/javascript"></script>
+
+</body>
+</html>
