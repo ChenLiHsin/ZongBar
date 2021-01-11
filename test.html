@@ -9,9 +9,22 @@
 <h3>Step 1:選擇相框(直向 or 橫向) </h3>
 
 <div>
-  <button type="button" id = "one" ><img src="0113_3.png" width = "120" height = "80" ></button>
-  <button type="button" id = "two" ><img src="0113_5.png" width = "80" height = "120"></button>
+	<input type="button" id = "one" style="background-image:url('0113_3.png');background-size: 116px 76px;background-position: 0px 0.5px ;width:120px;height:80px;">
+	<input type="button" id = "three" style="background-image:url('0113_2.png');background-size: 116px 78px;background-position: 0px 1px ;width:120px;height:80px;">
 </div>
+<br>
+<div>
+	<input type="button" id = "five" style="background-image:url('0113_7.png');background-size: 116px 76px;background-position: 0px 0px ;width:120px;height:80px;">
+	<input type="button" id = "six" style="background-image:url('0113_8.png');background-size: 116px 78px;background-position: 0px 0px ;width:120px;height:80px;">
+
+</div>
+
+<br>
+<div>
+	<input type="button" id = "two" style="background-image:url('0113_5.png');background-size: 79px 116px;background-position: 1px 0px ;width:80px;height:120px;">
+	<input type="button" id = "four" style="background-image:url('0113_4.png');background-size: 77px 116px;background-position: 0px 0px ;width:80px;height:120px;">
+</div>
+
 <br>
 <h3>Step 2:上傳照片 </h3>
 <div>
@@ -31,6 +44,10 @@ let inputElement = document.getElementById("fileInput");
 
 let one_button = document.querySelector("#one"); 
 let two_button = document.querySelector("#two"); 
+let three_button = document.querySelector("#three"); 
+let four_button = document.querySelector("#four"); 
+let five_button = document.querySelector("#five"); 
+let six_button = document.querySelector("#six"); 
 
 
 inputElement.addEventListener("change", (e) => {
@@ -47,6 +64,22 @@ one_button.addEventListener("click", (e) => {
 
 two_button.addEventListener("click", (e) => {
 	img.src = "0113_5.png" ;
+});
+
+three_button.addEventListener("click", (e) => {
+	img.src = "0113_2.png" ;
+});
+
+four_button.addEventListener("click", (e) => {
+	img.src = "0113_4.png" ;
+});
+
+five_button.addEventListener("click", (e) => {
+	img.src = "0113_7.png" ;
+});
+
+six_button.addEventListener("click", (e) => {
+	img.src = "0113_8.png" ;
 });
 
 
