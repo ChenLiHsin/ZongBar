@@ -34,13 +34,14 @@
 	<a href="#" download="image.png" onclick="this.href=outputCanvas.toDataURL();" >下載圖片</a>
 	
   </div>
-  <canvas id="outputCanvas"></canvas>
+  <canvas id="outputCanvas" style="display:none"></canvas>
+  <canvas id="display_outputCanvas" ></canvas>
 </div>
 <script type="text/javascript">
 let imgElement = document.getElementById("imageSrc") ;
 let output = document.getElementById("outputCanvas") ;
 let inputElement = document.getElementById("fileInput");
-
+let display_output = document.getElementById("display_outputCanvas") ;
 
 let one_button = document.querySelector("#one"); 
 let two_button = document.querySelector("#two"); 
@@ -58,45 +59,73 @@ var img = new Image();
 
 img.src = "0113_3.png" ;
 
+var width = 240 ;
+var height = 160 ;
+
 one_button.addEventListener("click", (e) => {
 	img.src = "0113_3.png" ;
+	width = 240 ;
+	height = 160 ;
 });
 
 two_button.addEventListener("click", (e) => {
 	img.src = "0113_5.png" ;
+	width = 160 ;
+	height = 240 ;
 });
 
 three_button.addEventListener("click", (e) => {
 	img.src = "0113_2.png" ;
+	width = 240 ;
+	height = 160 ;
 });
 
 four_button.addEventListener("click", (e) => {
 	img.src = "0113_4.png" ;
+	width = 160 ;
+	height = 240 ;
 });
 
 five_button.addEventListener("click", (e) => {
 	img.src = "0113_7.png" ;
+	width = 240 ;
+	height = 160 ;
 });
 
 six_button.addEventListener("click", (e) => {
 	img.src = "0113_8.png" ;
+	width = 240 ;
+	height = 160 ;
 });
 
 
 imgElement.onload = function() { 
 
   let mat = cv.imread(imgElement);
+  
+  var back_img = new Image();
 
+  back_img.src = imgElement.src ;
 
   var ctx = output.getContext('2d');
+  var display_ctx = display_output.getContext('2d');
   output.width = imgElement.width ;
   output.height = imgElement.height;  
   ctx.rect(0,0,output.width,output.height);
  
+  display_output.width = width ;
+  display_output.height = height ;  
+  display_ctx.rect(0,0,display_output.width,display_output.height);
 
   
   cv.imshow("outputCanvas", mat);  
   ctx.drawImage(img,0,0,imgElement.width,imgElement.height);
+
+ 
+  display_ctx.drawImage(back_img,0,0,display_output.width,display_output.height); 
+  display_ctx.drawImage(img,0,0,display_output.width,display_output.height); 
+
+  
   
 }
 
