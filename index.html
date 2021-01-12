@@ -179,15 +179,11 @@
 			display_output.height = height;
 			display_ctx.rect(0, 0, display_output.width, display_output.height);
 
-
 			cv.imshow("outputCanvas", mat);
 			ctx.drawImage(img, 0, 0, imgElement.width, imgElement.height);
 
-
 			display_ctx.drawImage(back_img, 0, 0, display_output.width, display_output.height);
 			display_ctx.drawImage(img, 0, 0, display_output.width, display_output.height);
-
-
 
 		}
 
