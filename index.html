@@ -56,12 +56,15 @@
 			<img id="imageSrc" style="display:none" />
 			<div class="caption">
 				<input type="file" id="fileInput" name="file" />
-				<a href="#" download="image.png" onclick="this.href=outputCanvas.toDataURL();">下載圖片</a>
 			</div>
 		</div>
 		<br>
 		<canvas id="outputCanvas" style="display:none"></canvas>
 		<canvas id="display_outputCanvas"></canvas>
+		<div>
+			<h3>Step 3:下載添加特效後照片 </h3>
+			<a href="#" download="image.png" onclick="this.href=outputCanvas.toDataURL();">下載圖片</a>
+		</div>
 	</div>
 	<script type="text/javascript">
 		let imgElement = document.getElementById("imageSrc");
